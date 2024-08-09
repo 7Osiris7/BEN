@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+}
+header, footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #f3f3f3;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.gallery .image {
+    flex-basis: 30%; /* Ajustez cette valeur selon le nombre d'images par ligne */
+    margin-bottom: 20px;
+}
+.gallery img {
+    width: 100%;
+    height: auto;
+}
