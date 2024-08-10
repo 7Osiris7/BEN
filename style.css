@@ -28,14 +28,13 @@ header, footer {
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    /* Espace entre les images */
+    justify-content: space-between; /* Espace entre les images pour laisser de la place pour du texte */
+    gap: 20px; /* Espace entre les images */
 }
 
 .gallery .image {
     flex-grow: 1;
-    flex-basis: calc(33.333% - 40px); /* 3 images par ligne avec espace entre */
+    flex-basis: calc(50% - 40px); /* Deux images par ligne par défaut */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,12 +49,24 @@ header, footer {
     border: 5px solid #006400;
     border-radius: 15px; /* Bordures plus douces */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    object-fit: cover; /* Couvre tout l'espace disponible en gardant les proportions */
+    object-fit: cover;
 }
 
 .gallery .image:hover {
     transform: scale(1.03);
-    /* Légère augmentation de la taille au survol */
+}
+
+/* Media Queries pour ajuster le nombre d'images par ligne */
+@media (max-width: 768px) {
+    .gallery .image {
+        flex-basis: calc(100% - 40px); /* Une image par ligne sur les petits écrans */
+    }
+}
+
+@media (min-width: 1200px) {
+    .gallery .image {
+        flex-basis: calc(50.0% - 40px); /* Trois images par ligne sur les écrans larges */
+    }
 }
 
 #fullscreen-container {
@@ -74,6 +85,6 @@ header, footer {
 #fullscreen-container img {
     max-width: 90%;
     max-height: 90%;
-    border: 5px solid #006400; /* Bordure jade profond */
+    border: 5px solid #006400;
     border-radius: 10px;
 }
