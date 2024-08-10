@@ -1,10 +1,7 @@
 body {
     font-family: 'Georgia', serif;
-    /* Utilisation d'une police élégante pour un style classique */
-    background-color: #003366;
-    /* Bleu marine marocain pour le fond */
-    color: #FFF8DC;
-    /* Texte en couleur ivoire pour un contraste subtil */
+    background-color: #003366; /* Bleu marine marocain */
+    color: #FFF8DC; /* Ivoire pour le texte */
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -13,67 +10,55 @@ body {
 header, footer {
     text-align: center;
     padding: 1em;
-    background-color: #006400;
-    /* Jade profond pour l'en-tête et le pied de page */
-    color: #FFF8DC;
-    /* Texte en couleur ivoire pour un contraste élégant */
+    background-color: #006400; /* Jade profond */
+    color: #FFF8DC; /* Ivoire */
     border-top: 5px solid #FFD700;
     border-bottom: 5px solid #FFD700;
-    /* Bordures en feuille d'or en haut et en bas */
 }
 
 .gallery-container {
     max-width: 1200px;
-    /* Largeur maximale de la galerie pour ne pas prendre tout l'écran */
     margin: 0 auto;
-    /* Centrer la galerie sur la page avec des marges sur les côtés */
-    padding: 50px 20px;
-    /* Ajouter un peu d'espace autour de la galerie */
+    padding: 20px;
     background-color: #003366;
-    /* Bleu marine marocain en fond pour un style cohérent */
     border-left: 15px solid #FFD700;
     border-right: 15px solid #FFD700;
-    /* Bordures en feuille d'or sur les côtés de la galerie */
 }
 
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: #003366;
-    /* Bleu marine marocain en fond pour un style cohérent */
+    justify-content: center;
+    gap: 20px;
+    /* Espace entre les images */
 }
 
 .gallery .image {
-    flex-basis: 30%;
+    flex-grow: 1;
+    flex-basis: calc(33.333% - 40px); /* 3 images par ligne avec espace entre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
     transition: transform 0.2s ease-in-out;
-    /* Animation subtile au survol avec moins de zoom */
+    max-width: 100%;
+}
+
+.gallery .image img {
+    max-width: 100%;
+    height: auto;
+    border: 5px solid #006400;
+    border-radius: 15px; /* Bordures plus douces */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    object-fit: cover; /* Couvre tout l'espace disponible en gardant les proportions */
 }
 
 .gallery .image:hover {
     transform: scale(1.03);
-    /* Légère augmentation de la taille au survol pour éviter trop de déformation */
+    /* Légère augmentation de la taille au survol */
 }
 
-.gallery img {
-    width: 100%;
-    height: auto;
-    border: 5px solid #006400;
-    /* Bordure jade profond autour des images */
-    border-radius: 10px;
-    /* Coins légèrement arrondis pour une touche raffinée */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    /* Ajoute une ombre discrète pour donner de la profondeur */
-}
-
-footer {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 0.9em;
-}
-/* Conteneur plein écran caché par défaut */
-.fullscreen-container {
+#fullscreen-container {
     display: none;
     position: fixed;
     top: 0;
@@ -86,12 +71,9 @@ footer {
     align-items: center;
 }
 
-/* Image en plein écran */
-.fullscreen-container img {
+#fullscreen-container img {
     max-width: 90%;
     max-height: 90%;
     border: 5px solid #006400; /* Bordure jade profond */
     border-radius: 10px;
-    /* Ajoutez d'autres styles si nécessaire */
 }
-
