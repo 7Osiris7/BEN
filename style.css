@@ -36,24 +36,34 @@ header, footer {
     flex-grow: 1;
     flex-basis: calc(45% - 40px); /* Deux images par ligne avec espace augmenté */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 40px;
-    transition: transform 0.2s ease-in-out;
+    padding: 20px; /* Augmentation du padding pour des cadres plus larges */
+    transition: transform 0.2s ease-in-out, background-color 5s ease-in-out; /* Transition douce pour les changements de couleur */
     max-width: 100%;
+    background-color: #006400; /* Couleur de fond initiale (Jade profond) */
+    border-radius: 15px; /* Bordures plus douces */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5); /* Augmentation de l'ombre pour plus de profondeur */
 }
 
 .gallery .image img {
     max-width: 100%;
     height: auto;
-    border: 5px solid #006400;
-    border-radius: 15px; /* Bordures plus douces */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Espace entre l'image et le texte */
 }
 
 .gallery .image:hover {
     transform: scale(1.03);
+}
+
+.gallery .image figcaption {
+    color: #FFF8DC; /* Texte en ivoire pour le contraste */
+    text-align: center;
+    font-size: 1.1em;
+    padding: 10px;
 }
 
 /* Media Queries pour ajuster le nombre d'images par ligne */
@@ -62,6 +72,7 @@ header, footer {
         flex-basis: calc(100% - 40px); /* Une image par ligne sur les petits écrans */
     }
 }
+
 #fullscreen-container {
     display: none;
     position: fixed;
