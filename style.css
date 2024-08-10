@@ -1,81 +1,89 @@
 body {
     font-family: 'Georgia', serif;
-    background-color: #003366; /* Bleu marine marocain */
+    background-color: #00264D; /* Bleu marine plus profond */
     color: #FFF8DC; /* Ivoire pour le texte */
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    background-image: url('texture.png'); /* Ajoutez une texture de fond ici */
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header, footer {
     text-align: center;
     padding: 1em;
-    background-color: #006400; /* Jade profond */
-    color: #FFF8DC; /* Ivoire */
+    background-color: #004d00; /* Jade plus profond */
+    color: #FFD700; /* Or */
     border-top: 5px solid #FFD700;
     border-bottom: 5px solid #FFD700;
 }
 
 .gallery-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #003366;
-    border-left: 15px solid #FFD700;
-    border-right: 15px solid #FFD700;
+    padding: 40px;
+    background-color: #00264D;
+    border-left: 20px solid #FFD700;
+    border-right: 20px solid #FFD700;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; /* Distribution uniforme avec de grands espaces */
-    gap: 40px; /* Espace augmenté entre les images */
+    gap: 50px; /* Espace augmenté entre les images */
 }
 
-/* Styles pour les cadres labyrinthiques */
 .image-wrapper {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    background-color: #004d00; /* Jade profond */
+    padding: 20px;
 }
 
 .frame-piece {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 215, 0, 0.7); /* Or avec opacité */
     transition: transform 0.8s ease-in-out, clip-path 1.2s ease-in-out;
     z-index: 1;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.frame-piece.top-left {
+.frame-piece.top {
     top: 0;
     left: 0;
-    width: 50%;
-    height: 50%;
-    clip-path: polygon(0% 0%, 100% 0%, 50% 50%, 0% 100%);
+    width: 100%;
+    height: 10px;
+    border-radius: 15px;
 }
 
-.frame-piece.top-right {
+.frame-piece.right {
     top: 0;
     right: 0;
-    width: 50%;
-    height: 50%;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 50%);
+    width: 10px;
+    height: 100%;
+    border-radius: 15px;
 }
 
-.frame-piece.bottom-left {
+.frame-piece.bottom {
     bottom: 0;
     left: 0;
-    width: 50%;
-    height: 50%;
-    clip-path: polygon(0% 100%, 50% 50%, 100% 100%, 0% 100%);
+    width: 100%;
+    height: 10px;
+    border-radius: 15px;
 }
 
-.frame-piece.bottom-right {
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 50%;
-    clip-path: polygon(50% 50%, 100% 0%, 100% 100%, 0% 100%);
+.frame-piece.left {
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    border-radius: 15px;
 }
 
 .image {
@@ -96,10 +104,11 @@ header, footer {
     font-size: 1.1em;
     padding: 10px;
 }
+
 /* Media Queries pour ajuster le nombre d'images par ligne */
 @media (max-width: 768px) {
-    .image {
-        flex-basis: calc(100% - 40px); /* Une image par ligne sur les petits écrans */
+    .image-wrapper {
+        width: 100%;
     }
 }
 

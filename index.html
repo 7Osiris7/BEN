@@ -10,50 +10,52 @@
     <header>
         <h1>Portfolio de Sculptures</h1>
     </header>
-    <section class="gallery">
-        <!-- Utilisation de <figure> pour encapsuler chaque image avec sa légende -->
-	<div class="image-wrapper">
-        <div class="frame-piece top"></div>
-        <div class="frame-piece right"></div>
-        <div class="frame-piece bottom"></div>
-        <div class="frame-piece left"></div>
-        <figure class="image">
-            <img src="1.jpg" alt="Sculpture 1">
-            <figcaption>Sculpture 1 - Description de l'œuvre</figcaption>
-        </figure>
+    <div class="gallery-container">
+        <section class="gallery">
+            <!-- Utilisation de <figure> pour encapsuler chaque image avec sa légende -->
+            <div class="image-wrapper">
+                <div class="frame-piece top"></div>
+                <div class="frame-piece right"></div>
+                <div class="frame-piece bottom"></div>
+                <div class="frame-piece left"></div>
+                <figure class="image">
+                    <img src="1.jpg" alt="Sculpture 1">
+                    <figcaption>Sculpture 1 - Description de l'œuvre</figcaption>
+                </figure>
+            </div>
+            <div class="image-wrapper">
+                <div class="frame-piece top"></div>
+                <div class="frame-piece right"></div>
+                <div class="frame-piece bottom"></div>
+                <div class="frame-piece left"></div>
+                <figure class="image">
+                    <img src="2.jpg" alt="Sculpture 2">
+                    <figcaption>Sculpture 2 - Description de l'œuvre</figcaption>
+                </figure>
+            </div>
+            <div class="image-wrapper">
+                <div class="frame-piece top"></div>
+                <div class="frame-piece right"></div>
+                <div class="frame-piece bottom"></div>
+                <div class="frame-piece left"></div>
+                <figure class="image">
+                    <img src="3.jpg" alt="Sculpture 3">
+                    <figcaption>Sculpture 3 - Description de l'œuvre</figcaption>
+                </figure>
+            </div>
+            <div class="image-wrapper">
+                <div class="frame-piece top"></div>
+                <div class="frame-piece right"></div>
+                <div class="frame-piece bottom"></div>
+                <div class="frame-piece left"></div>
+                <figure class="image">
+                    <img src="4.jpg" alt="Sculpture X">
+                    <figcaption>Sculpture 4 - Description de l'œuvre</figcaption>
+                </figure>
+            </div>
+            <!-- Répétez ce modèle pour chaque image -->
+        </section>
     </div>
-       <div class="image-wrapper">
-        <div class="frame-piece top"></div>
-        <div class="frame-piece right"></div>
-        <div class="frame-piece bottom"></div>
-        <div class="frame-piece left"></div>
-        <figure class="image">
-            <img src="2.jpg" alt="Sculpture 2">
-            <figcaption>Sculpture 1 - Description de l'œuvre</figcaption>
-        </figure>
-    </div>
-       <div class="image-wrapper">
-        <div class="frame-piece top"></div>
-        <div class="frame-piece right"></div>
-        <div class="frame-piece bottom"></div>
-        <div class="frame-piece left"></div>
-        <figure class="image">
-            <img src="3.jpg" alt="Sculpture 3">
-            <figcaption>Sculpture 1 - Description de l'œuvre</figcaption>
-        </figure>
-    </div>
-       <div class="image-wrapper">
-        <div class="frame-piece top"></div>
-        <div class="frame-piece right"></div>
-        <div class="frame-piece bottom"></div>
-        <div class="frame-piece left"></div>
-        <figure class="image">
-            <img src="4.jpg" alt="Sculpture X">
-            <figcaption>Sculpture 1 - Description de l'œuvre</figcaption>
-        </figure>
-    </div>
-	<!-- Répétez ce modèle pour chaque image -->
-    </section>
     <div id="fullscreen-container" class="fullscreen-container">
         <img id="fullscreen-image" src="" alt="Image en plein écran">
     </div>
@@ -97,7 +99,7 @@
             });
         });
     </script>
-       <script>
+    <script>
     document.querySelectorAll('.image-wrapper').forEach(wrapper => {
         const pieces = wrapper.querySelectorAll('.frame-piece');
 
