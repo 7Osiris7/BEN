@@ -28,17 +28,17 @@ header, footer {
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Espace entre les images pour laisser de la place pour du texte */
-    gap: 20px; /* Espace entre les images */
+    justify-content: space-around; /* Distribution uniforme avec de grands espaces */
+    gap: 40px; /* Espace augmenté entre les images */
 }
 
 .gallery .image {
     flex-grow: 1;
-    flex-basis: calc(50% - 40px); /* Deux images par ligne par défaut */
+    flex-basis: calc(45% - 40px); /* Deux images par ligne avec espace augmenté */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     transition: transform 0.2s ease-in-out;
     max-width: 100%;
 }
@@ -62,13 +62,6 @@ header, footer {
         flex-basis: calc(100% - 40px); /* Une image par ligne sur les petits écrans */
     }
 }
-
-@media (min-width: 1200px) {
-    .gallery .image {
-        flex-basis: calc(50.0% - 40px); /* Trois images par ligne sur les écrans larges */
-    }
-}
-
 #fullscreen-container {
     display: none;
     position: fixed;
