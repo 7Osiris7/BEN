@@ -1,21 +1,42 @@
 body {
     font-family: Arial, sans-serif;
+    /* Définit la police par défaut du site */
 }
+
 header, footer {
     text-align: center;
+    /* Centrage du texte dans l'en-tête et le pied de page */
+
     padding: 1em;
+    /* Ajoute un espace de 1em autour du contenu dans l'en-tête et le pied de page */
+
     background-color: #f3f3f3;
+    /* Définit une couleur de fond gris clair pour l'en-tête et le pied de page */
 }
+
 .gallery {
     display: flex;
+    /* Utilise le modèle de boîte flexible pour organiser les images */
+
     flex-wrap: wrap;
+    /* Permet aux éléments de se replier à la ligne suivante s'ils ne rentrent pas sur une seule ligne */
+
     justify-content: space-around;
+    /* Espace les images de manière uniforme */
 }
+
 .gallery .image {
-    flex-basis: 30%; /* Ajustez cette valeur selon le nombre d'images par ligne */
+    flex-basis: 30%;
+    /* Chaque image occupe 30% de la largeur du conteneur parent. Ajustez cette valeur pour déterminer combien d'images apparaissent sur une ligne */
+
     margin-bottom: 20px;
+    /* Ajoute un espace de 20 pixels en bas de chaque image */
 }
+
 .gallery img {
     width: 100%;
+    /* Chaque image occupe 100% de la largeur de son conteneur parent */
+
     height: auto;
+    /* La hauteur de l'image est ajustée automatiquement pour maintenir le ratio d'aspect */
 }
