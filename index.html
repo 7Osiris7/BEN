@@ -111,5 +111,24 @@
             });
         });
     </script>
+    <script>
+        document.querySelectorAll('.image-wrapper').forEach(wrapper => {
+            const pieces = wrapper.querySelectorAll('.frame-piece');
+
+            pieces.forEach((piece, index) => {
+                // Animation initiale : les morceaux se détachent et se déplacent
+                setTimeout(() => {
+                    const offsetX = (Math.random() - 0.5) * 300; // Déplacement aléatoire en X
+                    const offsetY = (Math.random() - 0.5) * 300; // Déplacement aléatoire en Y
+                    piece.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${Math.random() * 360}deg)`;
+                }, index * 300); // Décalage temporel pour chaque morceau
+
+                // Retour des morceaux à leur position initiale après 3 secondes
+                setTimeout(() => {
+                    piece.style.transform = 'translate(0, 0) rotate(0)';
+                }, 3000 + index * 300);
+            });
+        });
+    </script>
 </body>
 </html>
