@@ -49,6 +49,6 @@ header, footer {
     height: auto;
     border: 7px solid #ff00ff;
     					/* Bordure violette autour des images pour les faire ressortir */
-    filter: hue-rotate(180deg);
+    filter: hue-rotate(1deg);
     					/* Applique un filtre de rotation de teinte pour donner un effet psychédélique aux images */
 }
