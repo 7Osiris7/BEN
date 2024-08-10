@@ -97,31 +97,41 @@
             });
         });
     </script>
-    <script>
+       <script>
     document.querySelectorAll('.image-wrapper').forEach(wrapper => {
         const pieces = wrapper.querySelectorAll('.frame-piece');
 
         pieces.forEach((piece, index) => {
             setTimeout(() => {
-                // Fusion des effets de déplacement et de rotation
-                const offsetX = (Math.random() - 0.5) * 400; // Déplacement plus large en X
-                const offsetY = (Math.random() - 0.5) * 400; // Déplacement plus large en Y
-                const angle = Math.random() * 90 - 45; // Rotation agressive
+                // Déplacement non linéaire pour chaque pièce
+                const offsetX = (Math.random() - 0.5) * 500; // Déplacement plus large en X
+                const offsetY = (Math.random() - 0.5) * 500; // Déplacement plus large en Y
+                const angle = Math.random() * 120 - 60; // Rotation plus agressive et plus grande
 
+                // Transformation avec clip-path pour une découpe plus complexe
+                const clipPathVariation = `polygon(${Math.random() * 20}% ${Math.random() * 20}%, ${100 - Math.random() * 20}% ${Math.random() * 20}%, ${100 - Math.random() * 20}% ${100 - Math.random() * 20}%, ${Math.random() * 20}% ${100 - Math.random() * 20}%)`;
+
+                // Application des transformations
                 piece.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${angle}deg)`;
-                piece.style.clipPath = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'; // Transformation pour élargir les parties
-            }, index * 500); // Décalage temporel plus long pour chaque morceau
+                piece.style.clipPath = clipPathVariation;
+                piece.style.opacity = Math.random() * 0.5 + 0.5; // Ajouter un effet d'opacité variable
 
-            // Retour des morceaux à leur position initiale après 4 secondes
+                // Ajouter une ombre dynamique pour plus de profondeur
+                piece.style.boxShadow = `${Math.random() * 20}px ${Math.random() * 20}px 20px rgba(0, 0, 0, 0.5)`;
+            }, index * 400); // Déplacement un peu plus rapide pour chaque morceau
+
+            // Retourner à la position d'origine après 6 secondes
             setTimeout(() => {
                 piece.style.transform = 'translate(0, 0) rotate(0)';
-                piece.style.clipPath = ''; // Retour au clip-path initial
-            }, 4000 + index * 500); // Plus long retour pour plus de suspense
+                piece.style.clipPath = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'; // Retour à la forme initiale
+                piece.style.opacity = 1; // Remettre l'opacité à 1
+                piece.style.boxShadow = 'none'; // Enlever l'ombre ajoutée
+            }, 6000 + index * 400); // Retour après 6 secondes avec un délai progressif
 
-            // Animation continue (si nécessaire)
-            piece.style.animation = 'slide 3s ease-in-out infinite';
+            // Animation continue après le retour pour garder les cadres dynamiques
+            piece.style.animation = 'slide 12s ease-in-out infinite';
         });
     });
-</script>
+    </script>
 </body>
 </html>
