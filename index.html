@@ -97,38 +97,31 @@
             });
         });
     </script>
-     <script>
-        document.querySelectorAll('.image-wrapper').forEach(wrapper => {
-            const randomX = Math.floor(Math.random() * 200 - 100);
-            const randomY = Math.floor(Math.random() * 200 - 100);
-
-            wrapper.style.setProperty('--randomX', randomX);
-            wrapper.style.setProperty('--randomY', randomY);
-
-            const framePieces = wrapper.querySelectorAll('.frame-piece');
-            framePieces.forEach(piece => {
-                piece.style.animation = 'slide 3s ease-in-out infinite';
-            });
-        });
-    </script>
     <script>
-        document.querySelectorAll('.image-wrapper').forEach(wrapper => {
-            const pieces = wrapper.querySelectorAll('.frame-piece');
+    document.querySelectorAll('.image-wrapper').forEach(wrapper => {
+        const pieces = wrapper.querySelectorAll('.frame-piece');
 
-            pieces.forEach((piece, index) => {
-                // Animation initiale : les morceaux se détachent et se déplacent
-                setTimeout(() => {
-                    const offsetX = (Math.random() - 0.5) * 300; // Déplacement aléatoire en X
-                    const offsetY = (Math.random() - 0.5) * 300; // Déplacement aléatoire en Y
-                    piece.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${Math.random() * 360}deg)`;
-                }, index * 300); // Décalage temporel pour chaque morceau
+        pieces.forEach((piece, index) => {
+            setTimeout(() => {
+                // Fusion des effets de déplacement et de rotation
+                const offsetX = (Math.random() - 0.5) * 400; // Déplacement plus large en X
+                const offsetY = (Math.random() - 0.5) * 400; // Déplacement plus large en Y
+                const angle = Math.random() * 90 - 45; // Rotation agressive
 
-                // Retour des morceaux à leur position initiale après 3 secondes
-                setTimeout(() => {
-                    piece.style.transform = 'translate(0, 0) rotate(0)';
-                }, 3000 + index * 300);
-            });
+                piece.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${angle}deg)`;
+                piece.style.clipPath = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'; // Transformation pour élargir les parties
+            }, index * 500); // Décalage temporel plus long pour chaque morceau
+
+            // Retour des morceaux à leur position initiale après 4 secondes
+            setTimeout(() => {
+                piece.style.transform = 'translate(0, 0) rotate(0)';
+                piece.style.clipPath = ''; // Retour au clip-path initial
+            }, 4000 + index * 500); // Plus long retour pour plus de suspense
+
+            // Animation continue (si nécessaire)
+            piece.style.animation = 'slide 3s ease-in-out infinite';
         });
-    </script>
+    });
+</script>
 </body>
 </html>

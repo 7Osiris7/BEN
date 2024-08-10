@@ -35,73 +35,67 @@ header, footer {
 /* Styles pour les cadres labyrinthiques */
 .image-wrapper {
     position: relative;
-    display: inline-block;
     margin-bottom: 40px;
 }
 
 .frame-piece {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3); /* Couleur initiale */
-    transition: transform 2s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: transform 0.8s ease-in-out, clip-path 1.2s ease-in-out;
     z-index: 1;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.frame-piece.top {
+.frame-piece.top-left {
     top: 0;
     left: 0;
-    width: 100%;
-    height: 10px;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 50%, 0% 100%);
 }
 
-.frame-piece.bottom {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 10px;
-}
-
-.frame-piece.left {
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 100%;
-}
-
-.frame-piece.right {
+.frame-piece.top-right {
     top: 0;
     right: 0;
-    width: 10px;
-    height: 100%;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 50%);
+}
+
+.frame-piece.bottom-left {
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(0% 100%, 50% 50%, 100% 100%, 0% 100%);
+}
+
+.frame-piece.bottom-right {
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(50% 50%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .image {
     position: relative;
     z-index: 2;
-    background-color: #006400; /* Couleur de fond initiale (Jade profond) */
-    padding: 20px; /* Augmentation du padding pour des cadres plus larges */
-    border-radius: 15px; /* Bordures plus douces */
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5); /* Augmentation de l'ombre pour plus de profondeur */
-    transition: transform 0.2s ease-in-out, background-color 5s ease-in-out; /* Transition douce pour les changements de couleur */
+    overflow: hidden;
 }
 
 .image img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px; /* Espace entre l'image et le texte */
-}
-
-.image:hover {
-    transform: scale(1.03);
+    border-radius: 15px;
 }
 
 .image figcaption {
-    color: #FFF8DC; /* Texte en ivoire pour le contraste */
+    color: #FFF8DC;
     text-align: center;
     font-size: 1.1em;
     padding: 10px;
 }
-
 /* Media Queries pour ajuster le nombre d'images par ligne */
 @media (max-width: 768px) {
     .image {
