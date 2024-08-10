@@ -77,5 +77,22 @@
         <p>© 2024 Artiste Sculpteur</p>
         <!-- Un texte dans le pied de page, généralement des informations de copyright ou des détails de contact -->
     </footer>
+	////////////////////////////////////////////////////////////// 
+	<!-- Script JavaScript intégré directement dans le HTML -->
+    <script>
+        document.querySelectorAll('.gallery .image img').forEach(image => {
+            image.addEventListener('dblclick', function() {
+                const fullscreenContainer = document.getElementById('fullscreen-container');
+                const fullscreenImage = document.getElementById('fullscreen-image');
+
+                fullscreenImage.src = this.src;
+                fullscreenContainer.style.display = 'flex';
+
+                fullscreenContainer.addEventListener('click', function() {
+                    fullscreenContainer.style.display = 'none';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
