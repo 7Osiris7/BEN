@@ -1,11 +1,11 @@
 body {
     font-family: 'Georgia', serif;
-    background-color: #00264D; /* Bleu marine plus profond */
+    background-color: #CC7722; /* ocre chaud */
     color: #FFF8DC; /* Ivoire pour le texte */
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-image: url('texture.png'); /* Ajoutez une texture de fond ici */
+    background-image: url('texture.jpg'); /* Ajoutez une texture de fond ici */
     background-size: cover;
     background-attachment: fixed;
 }
